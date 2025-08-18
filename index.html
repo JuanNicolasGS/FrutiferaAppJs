@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App - Fruit</title>
+    <!-- FAVICON -->
+    <link
+      rel="shortcut icon"
+      href="./assets/image/1486071666-fruiticons-buttons-orange_79321.svg"
+      type="image/x-icon"
+    />
+
+    <!-- Bootstrap -->
+    <link
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/app.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="container">
+        <nav
+          class="navbar navbar-expand-lg bg-body-tertiary border-bottom rounded"
+        >
+          <div class="container-fluid mx-5">
+            <a class="navbar-brand" href="#">
+              <img
+                src="./assets/image/1486071666-fruiticons-buttons-orange_79321.svg"
+                alt="Logo"
+                width="30"
+                height="24"
+                class="d-inline-block align-text-top"
+              />
+              Fruit
+            </a>
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse mx-5" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./lista.html">Lista</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- MAIN -->
+    <main>
+      <div class="container my-5">
+        <h1 class="text-center">Bem-vindo ao App Fruit</h1>
+        <p class="text-center">
+          Descubra uma variedade de frutas frescas e deliciosas!
+        </p>
+      </div>
+      <!-- CARROSSEL -->
+      <div class="container my-5">
+        <div class="container">
+          <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="./assets/image/markus-spiske-s05XKB6jK2c-unsplash.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./assets/image/mike-dorner-sf_1ZDA1YFw-unsplash.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./assets/image/thought-catalog-9aOswReDKPo-unsplash.jpg"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleFade"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- SEPARATOR -->
+    <div class="container">
+      <hr class="my-5" />
+    </div>
+    <!-- FOOTER -->
+    <footer class="mt-auto bg-body-tertiary border-bottom rounded">
+      <div class="container">
+        <div class="row">
+          <div class="col mt-3 mb-3">
+            <a
+              class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
+              href="#"
+            >
+              <img
+                src="./assets/image/1486071666-fruiticons-buttons-orange_79321.svg"
+                alt="Logo"
+                width="40"
+                class="d-inline-block align-text-top"
+              />
+            </a>
+            <p class="text-body-secondary">© 2025</p>
+          </div>
+          <ul class="nav col justify-content-end">
+            <li class="nav-item">
+              <a href="#" class="nav-link px-2 text-muted">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="./lista.html" class="nav-link px-2 text-muted">Lista</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
