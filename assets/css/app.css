@@ -14,22 +14,21 @@ main {
   height: 100%;
 }
 
-/* Estilo para o botão de adicionar no header */
 .btn-add-header {
-  /* Tamanho do botão (igual à altura do ícone do site) */
   width: 24px;
   height: 24px;
-
-  /* Remove espaçamentos internos para ter controle total do tamanho */
   padding: 0;
-
-  /* As 3 linhas abaixo centralizam o ícone "+" perfeitamente */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Ajusta o tamanho do ícone "+" DENTRO do botão */
 .btn-add-header .fa-add {
-  font-size: 12px; /* Metade do tamanho do botão fica visualmente bom */
+  font-size: 12px;
+}
+
+.cardImg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }

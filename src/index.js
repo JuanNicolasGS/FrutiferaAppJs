@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let itemlistaCard = `<div class="col-md-4 mb-4">
     <div class="card h-100">
+      <img src="${itemLista.urlImagem}" class="card-img-top cardImg" alt="Imagem de ${itemLista.nomePopular}">
+      <div class="card-header">
       <div class="card-body d-flex flex-column">
         <div>
           <h5 class="card-title"><strong>Nome Popular:</strong> ${
