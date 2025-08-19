@@ -8,19 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const dataPlantio = new Date(data);
     const dataAtual = new Date();
 
-    dataPlantio.setMinutes(
-      dataPlantio.getMinutes() + dataPlantio.getTimezoneOffset()
+    return (
+      dataAtual.getMonth() -
+      dataPlantio.getMonth() +
+      12 * (dataAtual.getFullYear() - dataPlantio.getFullYear())
     );
-
-    let meses = (dataAtual.getFullYear() - dataPlantio.getFullYear()) * 12;
-    meses -= dataPlantio.getMonth();
-    meses += dataAtual.getMonth();
-
-    if (dataAtual.getDate() < dataPlantio.getDate()) {
-      meses--;
-    }
-
-    return meses <= 0 ? 0 : meses;
   };
 
   for (let itemLista of itensLista) {
@@ -42,8 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="card h-100">
       <div class="card-body d-flex flex-column">
         <div>
-          <h5 class="card-title">${itemLista.nomePopular}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${
+          <h5 class="card-title"><strong>Nome Popular:</strong> ${
+            itemLista.nomePopular
+          } </h5>
+          <h6 class="card-subtitle mb-2 text-muted"><strong>Nome Científico:</strong> ${
             itemLista.nomeCientifico
           }</h6>
           <p class="card-text"><strong>ID:</strong> ${itemLista.id}</p>

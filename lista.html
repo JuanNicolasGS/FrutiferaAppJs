@@ -69,6 +69,17 @@
               <li class="nav-item">
                 <a class="nav-link" href="./lista.html">Lista</a>
               </li>
+              <li class="nav-item d-flex align-items-center mx-2">
+                <!-- ADD BUTTON -->
+                <button
+                  type="button"
+                  class="btn btn-success rounded-circle ms-auto btn-add-header"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addModal"
+                >
+                  <i class="fa fa-add"></i>
+                </button>
+              </li>
             </ul>
           </div>
         </nav>
@@ -80,19 +91,6 @@
       <div class="container">
         <h1 class="mt-5 text-center">Lista de Itens</h1>
         <p class="lead text-center">Aqui está a lista de itens disponíveis.</p>
-      </div>
-      <!-- INPUT -->
-      <div class="container mb-5">
-        <div class="labelContainer">
-          <button
-            type="button"
-            class="button"
-            data-bs-toggle="modal"
-            data-bs-target="#addModal"
-          >
-            <i class="fa fa-add position-absolute addIcon"></i>
-          </button>
-        </div>
       </div>
 
       <!-- MODAL -->
@@ -195,11 +193,9 @@
               <th scope="col">Data</th>
             </tr>
           </thead>
-          <tbody id="TBody">
-          </tbody>
+          <tbody id="TBody"></tbody>
         </table>
       </div>
-
     </main>
     <!-- FOOTER -->
     <footer class="mt-auto bg-body-tertiary border-top rounded fixed-bottom">
