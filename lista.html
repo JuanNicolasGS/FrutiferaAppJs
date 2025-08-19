@@ -67,7 +67,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./cardapio.html">Lista</a>
+                <a class="nav-link" href="./lista.html">Lista</a>
               </li>
             </ul>
           </div>
@@ -118,22 +118,24 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
-              <form action="" class="" id="form-cadastrar-item">
+            <form action="" class="" id="formCadastrarItem">
+              <div class="modal-body">
                 <div class="form-floating">
                   <input
                     type="text"
                     class="form-control mb-3"
                     id="nome-da-especie"
+                    name="nomePopular"
                     placeholder="nome da espécie "
                   />
                   <label for="nome-da-especie">Nome da espécie </label>
                 </div>
                 <div class="form-floating">
                   <input
-                    type="url"
+                    type="text"
                     class="form-control mb-3"
                     id="nome-cientifico"
+                    name="nomeCientifico"
                     placeholder="Nome Científico"
                   />
                   <label for="nome-cientifico">Nome Científico</label>
@@ -142,7 +144,8 @@
                   <input
                     class="form-control mb-3"
                     placeholder="data do plantio (dd/mm/aaaa)"
-                    id="danta-plantio"
+                    id="data-plantio"
+                    name="data"
                     type="date"
                   />
                   <label for="data-plantio">Data do plantio (dd/mm/aaaa)</label>
@@ -152,23 +155,31 @@
                     type="number"
                     class="form-control mb-3"
                     id="producao-safra"
+                    ame="producaoSafra"
                     placeholder="produção média por safra (Kg)"
                   />
-                  <label for="producao-safra">Produção média por safra (Kg)</label>
+                  <label for="producao-safra"
+                    >Produção média por safra (Kg)</label
+                  >
                 </div>
-                
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Cancelar
-              </button>
-              <button type="button" class="btn btn-success">Salvar</button>
-            </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  id="itemCadastrarForm"
+                >
+                  Salvar
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -181,33 +192,34 @@
               <th scope="col">Nome da espécie</th>
               <th scope="col">Nome científico</th>
               <th scope="col">Produção média (kg)</th>
+              <th scope="col">Data</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="TBody">
             <tr>
               <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>John</td>
-              <td>Doe</td>
-              <td>@social</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
       </div>
+      <!-- CARDS -->
+      <!-- <div class="container row" id="cards">
+        <div class="card col" style="width: 18rem">
+          <div class="card-header">Featured</div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+          </ul>
+        </div>
+      </div> -->
     </main>
     <!-- FOOTER -->
-    <footer class="mt-auto bg-body-tertiary border-bottom rounded">
+    <footer class="mt-auto bg-body-tertiary border-top rounded fixed-bottom">
       <div class="container">
         <div class="row">
           <div class="col mt-3 mb-3">
@@ -235,7 +247,11 @@
         </div>
       </div>
     </footer>
+    <!-- JQUERY -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS -->
+    <script src="./src/index.js" type="module"></script>
   </body>
 </html>
