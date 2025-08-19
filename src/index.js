@@ -1,40 +1,87 @@
-let itensLista = JSON.parse(localStorage.getItem('itensLista')) || [];
-let cont = 0;
-for (let itemLista of itensLista) {
-  let itensListaTBody = document.getElementById('TBody');
+document.addEventListener("DOMContentLoaded", () => {
+  let itensLista = JSON.parse(localStorage.getItem("itensLista")) || [];
 
-  cont = Date.now();
+  let itensListaTBody = document.getElementById("TBody");
+  let itensListaCard = document.getElementById("cards");
 
-  let itemlistaTr = `<tr>
-    <th scope="row">${cont}</th>
-    <td>${itemLista.nomePopular}</td>
-    <td>${itemLista.nomeCientifico}</td>
-    <td>${itemLista.producaoSafra}</td>
-    <td>${itemLista.data}</td>
-  </tr>`;
+  let calcularIdadeEmMeses = (data) => {
+    const dataPlantio = new Date(data);
+    const dataAtual = new Date();
 
-  itensListaTBody.insertAdjacentHTML('beforeend', itemlistaTr);
-  console.log(itemlistaTr);
-}
+    dataPlantio.setMinutes(
+      dataPlantio.getMinutes() + dataPlantio.getTimezoneOffset()
+    );
 
-let listaForm = document.getElementById('formCadastrarItem');
-const handleSubmit = (event) => {
-  event.preventDefault();
+    let meses = (dataAtual.getFullYear() - dataPlantio.getFullYear()) * 12;
+    meses -= dataPlantio.getMonth();
+    meses += dataAtual.getMonth();
 
-  let listaFormData = new FormData(listaForm);
-  let itemlista = Object.fromEntries(listaFormData);
+    if (dataAtual.getDate() < dataPlantio.getDate()) {
+      meses--;
+    }
 
-  // Adicionam o valor no localstorage.
-  itensLista.push(itemlista);
-  localStorage.setItem('itensLista', JSON.stringify(itensLista));
+    return meses <= 0 ? 0 : meses;
+  };
 
-  // Fechar o modal.
-  $('#addModal').modal('toggle');
+  for (let itemLista of itensLista) {
+    if (itensListaTBody) {
+      let itemlistaTr = `<tr>
+        <th scope="row">${itemLista.id}</th>
+        <td>${itemLista.nomePopular}</td>
+        <td>${itemLista.nomeCientifico}</td>
+        <td>${itemLista.producaoSafra}</td>
+        <td>${itemLista.data}</td>
+      </tr>`;
+      itensListaTBody.insertAdjacentHTML("beforeend", itemlistaTr);
+    }
 
+    if (itensListaCard) {
+      itemLista.idadeEmMeses = calcularIdadeEmMeses(itemLista.data);
 
-  // Limpar o formulário.
-  listaForm.reset();
-};
+      let itemlistaCard = `<div class="col-md-4 mb-4">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <div>
+          <h5 class="card-title">${itemLista.nomePopular}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${
+            itemLista.nomeCientifico
+          }</h6>
+          <p class="card-text"><strong>ID:</strong> ${itemLista.id}</p>
+          <p class="card-text"><strong>Produção média:</strong> ${
+            itemLista.producaoSafra
+          } kg/safra</p>
+        </div>
+        <div class="mt-auto">
+          <p class="card-text text-success mb-0"><strong>Idade: ${
+            itemLista.idadeEmMeses
+          } meses</strong></p>
+          <p class="card-text"><small class="text-muted">Plantio: ${new Date(
+            itemLista.data
+          ).toLocaleDateString("pt-BR", { timeZone: "UTC" })}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>`;
+      itensListaCard.insertAdjacentHTML("beforeend", itemlistaCard);
+    }
+  }
 
+  let listaForm = document.getElementById("formCadastrarItem");
+  if (listaForm) {
+    listaForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      let listaFormData = new FormData(listaForm);
+      let itemlista = Object.fromEntries(listaFormData);
 
-listaForm.addEventListener('submit', handleSubmit);
+      itemlista.id = Date.now();
+
+      itensLista.push(itemlista);
+      localStorage.setItem("itensLista", JSON.stringify(itensLista));
+
+      listaForm.reset();
+
+      // Fechar modal
+      $("#addModal").modal("toggle");
+    });
+  }
+});
